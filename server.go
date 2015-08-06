@@ -139,6 +139,7 @@ func (c *Channels) SavePlayList(name string) (err error) {
 	w := bufio.NewWriter(f)
 	for _, i := range c.Files {
 		// _, err := w.WriteString(fmt.Sprintln(i))
+		fmt.Println("SavePlayList:", i)
 		if _, err := os.Stat(i); err == nil {
 			if _, err := w.WriteString(filepath.Base(i) + "\n"); err != nil {
 				return err
